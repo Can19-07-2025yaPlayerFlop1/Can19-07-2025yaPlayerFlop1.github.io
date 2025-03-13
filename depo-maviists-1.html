@@ -319,68 +319,184 @@ body {
     color: white !important;
 }
 </style>
-<meta content="noindex, nofollow, noarchive" name="robots"/>
-<meta content="noindex, nofollow, noarchive" name="googlebot"/>
-<meta name="referrer" content="no-referrer" />
-<script ></script>
-<script>
-!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t((e="undefined"!=typeof globalThis?globalThis:e||self).ConsoleBan={})}(this,(function(e){"use strict";var t=function(){return t=Object.assign||function(e){for(var t,i=1,n=arguments.length;i<n;i++)for(var o in t=arguments[i])Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o]);return e},t.apply(this,arguments)},i={clear:!0,debug:!0,debugTime:3e3},n=2,o=function(e){return~navigator.userAgent.toLowerCase().indexOf(e)},r=function(e,t){t!==n?location.href=e:location.replace(e)},c=0,a=0,f=function(e){var t=0,i=1<<c++;return function(){(!a||a&i)&&2===++t&&(a|=i,e(),t=1)}},l=function(e){var t=/./;t.toString=f(e);var i=function(){return t};i.toString=f(e);var n=new Date;n.toString=f(e),console.log("%c",i,i(),n);var o,r,c=f(e);o=c,r=new Error,Object.defineProperty(r,"message",{get:function(){o()}}),console.log(r)},u=function(){function e(e){var n=t(t({},i),e),o=n.clear,r=n.debug,c=n.debugTime,a=n.callback,f=n.redirect,l=n.write;this._debug=r,this._debugTime=c,this._clear=o,this._callback=a,this._redirect=f,this._write=l}return e.prototype.clear=function(){this._clear&&(console.clear=function(){})},e.prototype.debug=function(){if(this._debug){var e=new Function("debugger");setInterval(e,this._debugTime)}},e.prototype.redirect=function(e){var t=this._redirect;if(t)if(0!==t.indexOf("http")){var i,n=location.pathname+location.search;if(((i=t)?"/"!==i[0]?"/".concat(i):i:"/")!==n)r(t,e)}else location.href!==t&&r(t,e)},e.prototype.callback=function(){if((this._callback||this._redirect||this._write)&&window){var e,t=this.fire.bind(this),i=window.chrome||o("chrome"),r=o("firefox");if(!i)return r?((e=/./).toString=t,void console.log(e)):void function(e){var t=new Image;Object.defineProperty(t,"id",{get:function(){e(n)}}),console.log(t)}(t);l(t)}},e.prototype.write=function(){var e=this._write;e&&(document.body.innerHTML="string"==typeof e?e:e.innerHTML)},e.prototype.fire=function(e){this._callback?this._callback.call(null):(this.redirect(e),this._redirect||this.write())},e.prototype.ban=function(){this.callback(),this.clear(),this.debug()},e}();e.init=function(e){new u(e).ban()},Object.defineProperty(e,"__esModule",{value:!0})}));
 
-ConsoleBan.init({
-  redirect: " "
-})
-</script>
-<script src="//ssl.p.jwpcdn.com/player/v/8.26.5/jwplayer.js"></script>
-<script>jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo";</script>
-
+<script src="https://ssl.p.jwpcdn.com/player/v/8.26.5/jwplayer.js"></script>
+<script>jwplayer.key="/hw9bnYgXuFWXXH1X/Aem7Bpeyb9DJOyY/V8EUpGqww0gLLZ";</script>
 <script type="text/javascript">
-function getData(e){e=e.replace(/[\[]/,"[").replace(/[\]]/,"]");var a=new RegExp("[?&]"+e+"=([^&#]*)").exec(location.search);return null===a?"":decodeURIComponent(a[1].replace(/\+/g," "))} 
-var id = getData("id"); if (id == "#") {alert("Vuelve a la pÃ¯Â¿Â½gina anterior");}
-var aut = getData("aut"); if (aut == "false") {auto = false;} else {auto = true;} 
-</script>
+        aclib.runPop({
+            zoneId: '9558050',
+        });
+    </script>
+    <style>
+        body { margin: 0px; }
+        .ViostreamIframe { overflow: hidden; padding-top: 56.25%; position: relative; }
+        .ViostreamIframe iframe { border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
+    </style>
+</head>
+<body>
+    <div id="player" class="ViostreamIframe"></div>
 
-<script>
-//TELEVISION
-if (id == "latina") {
-url = "//1157-vos.dtvott.com/DASH/manifest.mpd"; k1 = "174f5f2ee8193624bec9dd8e5d507a64"; k2 = "8ea131613f968b9c2b07d2d08ce5ef44";}
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(window.location.href);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
 
-else if (id == "lasestrellas") {
-url = "//edge1-ccast-sl.cvattv.com.ar/live/c6eds/Canal_de_las_estrellas/SA_Live_dash_enc/Canal_de_las_estrellas.mpd"; k1 = "b37d85be9d2b4b619f945beff713fda3"; k2 = "917309c98f072b0bd484dd6560c6d166";}
+        var ConfiguracionCanales = {
+    //DEPORTSS
+            "espn1": {
+                url: "//cdn.cvattv.com.ar/live/c3eds/ESPN2HD/SA_Live_dash_enc_wl/ESPN2HD.mpd",
+                k1: "e884b711ab111beb8a7ba1e7bcbdc9bf",
+                k2: "cb89ee3961599e3e648a5aad60895f34"
+            },
+            "espn2": {
+                url: "//cdn.cvattv.com.ar/live/c6eds/ESPN2_Arg/SA_Live_dash_enc_wl/ESPN2_Arg.mpd",
+                k1: "65a5bfa3c7a72dde60be9b0c7406c8fc",
+                k2: "0b40ae9f78a7bac3b57ecbf72d3c081e"
+            },
+            "espn3": {
+                url: "//cdn.cvattv.com.ar/live/c3eds/ESPN3/SA_Live_dash_enc_wl/ESPN3.mpd",
+                k1: "f4c9f97e2a36feab0e5077f2b44cbc4e",
+                k2: "1743cd03dfe3736b2c95da91a783af38"
+            },
+            "espnextra": {
+                url: "//cdn.cvattv.com.ar/live/c3eds/ESPNHD/SA_Live_dash_enc_wl/ESPNHD.mpd",
+                k1: "cc8d44406ed6bf1898ad9f7a2d64f29e",
+                k2: "fb85d059687ab0fc67805806204edbdf"
+            },
+            "espnprem": {
+                url: "//cdn.cvattv.com.ar/live/c7eds/Fox_Sports_Premiun_HD/SA_Live_dash_enc_wl/Fox_Sports_Premiun_HD.mpd",
+                k1: "4c230dbc7f6a4bfa6ad0aa73ff792374",
+                k2: "4186a7c2a15f590a9399886feaec4257"
+            },
+            "tntsportsaargeen": {
+                url: "//cdn.cvattv.com.ar/live/c6eds/TNT_Sports_HD/SA_Live_dash_enc_wl/TNT_Sports_HD.mpd",
+                k1: "bc80fa3da696e503f940fde5f681a1c5",
+                k2: "ea46e4e9f1132e8dd71fb77f7d55058a"
+            },
+            "foxsports1": {
+                url: "//cdn.cvattv.com.ar/live/c3eds/FoxSports/SA_Live_dash_enc_wl/FoxSports.mpd",
+                k1: "cbc2a0c7a38df0aa3333cd71841d3b0d",
+                k2: "aac61b730e2ac1df23f1e872e7541c1b"
+            },
+            "foxsports2": {
+                url: "//cdn.cvattv.com.ar/live/c3eds/FoxSports2HD/SA_Live_dash_enc_wl/FoxSports2HD.mpd",
+                k1: "c98ddffc470fe449ae1a8d6492116976",
+                k2: "5086d370e840010232cf4532b16e197f"
+            },
+            "foxsports3": {
+                url: "//cdn.cvattv.com.ar/live/c3eds/FoxSports3HD/SA_Live_dash_enc_wl/FoxSports3HD.mpd",
+                k1: "55b47390cf9e4997dae6dac85e057875",
+                k2:"fa39e855543c5d70f30600d59e5e4c1b"
+            },
+            "tyc": {
+                url: "//cdn.cvattv.com.ar/live/c7eds/TyCSport/SA_Live_dash_enc_wl/TyCSport.mpd",
+                k1: "2b21c8fa9a329cce311a4c4a4aa996a1",
+                k2: "cc23ea1fb32629f9e1f48c8deeae3e5b"
+            },
+            "tycinternacional": {
+                url: "//cdn.cvattv.com.ar/live/c3eds/TyC_Internacional/SA_Live_dash_enc_wl/TyC_Internacional.mpd",
+                k1: "58e1ebe75d944f6a98ea67b1c7c0a572",
+                k2: "1c311b069dbce31ce8e62a6e7e2433eb"
+            },
+          "espe5": {
+                url: "//cdn.cvattv.com.ar/live/c7eds/ESPN4/SA_Live_dash_enc_wl/ESPN4.mpd",
+                k1: "24f2b3e741f0d9e9a8d516faff38bddc",
+                k2: "bbd3fd02fb104e1463ac528a13f67e4a"
+            },
+          "espe6": {
+                url: "//cdn.cvattv.com.ar/live/c7eds/FoxSports3_UY/SA_Live_dash_enc_wl/FoxSports3_UY.mpd",
+                k1: "5fc7b662e69c0fbf8d39691166b1c919",
+                k2: "89157cdd25df25d56f1ecccee3850888"
+            },
+          "espe7": {
+                url: "//cdn.cvattv.com.ar/live/c7eds/FoxSports2_UY/SA_Live_dash_enc_wl/FoxSports2_UY.mpd",
+                k1: "5fc7b662e69c0fbf8d39691166b1c919",
+                k2: "89157cdd25df25d56f1ecccee3850888"
+            },
+        "evenuy": {
+                url: "//cdn.cvattv.com.ar/live/c7eds/Eventos_HD_Uy/SA_Live_dash_enc_wl/Eventos_HD_Uy.mpd",
+                k1: "48d0e34c8797c5c2a742d2630a8fb975",
+                k2: "fb5d12b9d8febe836e5670abd003ddca"
+            },	
+	    "flooeve2": {
+                url: "//cdn.cvattv.com.ar/live/c6eds/Eventos_2_HD/SA_Live_dash_enc_wl/Eventos_2_HD.mpd",
+                k1: "e54e9ea87a634658fbba0e380aa701a7",
+                k2: "4e486d25d7d0e7d131743b285963c643"
+            },
+         "flooevepy1": {
+                url: "//cdn.cvattv.com.ar/live/c3eds/Eventos_PY/SA_Live_dash_enc_wl/Eventos_PY.mpd",
+                k1: "2bdfc30f2a7591e107d8c84458c395dd",
+                k2: "dcee0d6420b6b597fba15d3c4411a71e"
+            },
+           "flooevepy2": {
+                url: "//cdn.cvattv.com.ar/live/c4eds/Eventos2_PY/SA_Live_dash_enc_wl/Eventos2_PY.mpd",
+                k1: "0900ce66b82de0fd07aa8f12a48f29a2",
+                k2: "e5556dba688fda637374ab5c87d7cda6"
+            },
+           "shoooespo": {
+                url: "//cdn.cvattv.com.ar/live/c4eds/Show_Sports/SA_Live_dash_enc_wl/Show_Sports.mpd",
+                k1: "df3ed6245bb9af1a0346379e8e475dff",
+                k2: "f86f8457438d4e449d53b956cc1be664"
+            },
+           "peeequis": {
+                url: "//cdn.cvattv.com.ar/live/c7eds/PX_Sports/SA_Live_dash_enc_wl/PX_Sports.mpd",
+                k1: "9393321daef1463fc7e2e060298db852",
+                k2: "be6bc91e17816f67e62596bed463c5ad"
+            },
+           "eeepe1py": {
+                url: "//cdn.cvattv.com.ar/live/c4eds/ESPN2_PY/SA_Live_dash_enc_wl/ESPN2_PY.mpd",
+                k1: "0aab4bd18144c7316c35c74ccce96ddc",
+                k2: "3e6db98d9df4747108bd896cba0be57d"
+            },
+        "eeepe2py": {
+                url: "//cdn.cvattv.com.ar/live/c4eds/ESPN_PY/SA_Live_dash_enc_wl/ESPN_PY.mpd",
+                k1: "4cbc5f5cbac72d38371bb63309e4a9d2",
+                k2: "dbc8de27da9726cd2e7659abb08e86ef"
+            },
+            "TYC_SPORTS_PLAY": {
+                url: "https://dpyzprfzko681.cloudfront.net/out/v1/366fc52554ae42c58465ea4b278eac0c/index.m3u8",
+            },
 
-else if (id == "") {
-url = ""; k1 = ""; k2 = "";}
+        };
 
-else if (id == "") {
-url = ""; k1 = ""; k2 = "";}
+var id = getParameterByName('id');
+var config = ConfiguracionCanales[id];
 
-else if (id == "") {
-url = ""; k1 = ""; k2 = "";}
+if (config) {
+    var sources = [];
 
+    if (config.url.includes('.m3u8')) {
+        sources.push({
+            file: config.url
+        });
+    }
+    
+    if (config.url.includes('.mpd') && config.k1 && config.k2) {
+        sources.push({
+            file: config.url,
+            drm: {"clearkey": {"keyId": config.k1, "key": config.k2}}
+        });
+    }
 
-//DEPORTES
-else if (id == "foxsports1") {
-url = "//cdn.cvattv.com.ar/live/c3eds/ESPN2HD/SA_Live_dash_enc_wl/ESPN2HD.mpd",
-k1= "e884b711ab111beb8a7ba1e7bcbdc9bf"; k2= "cb89ee3961599e3e648a5aad60895f34"}
-else if (id == "prembr6") {
-url = "https://ottb.live.cf.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/dabubydklo/out/v1/c272f10312ac4e81bcf2183509703dd1/cenc.mpd"; k1 = atob("N2JhMzg0ZjlkOTgzYzczMWFiMWUzNzAyYzE2ZTJmYWY="); k2 = atob("ZjI4YWRjYTQzNzVlOGEwNDFmZDIyYWVmMjY0NDAwMDk=");}
-</script>
-
-<div id="player"></div>
-<script>
-jwplayer("player").setup({
-playlist: [{
-title : "REPRODUCTOR",
+ //JWWWWWW
+    jwplayer("player").setup({
+        playlist: [{
+           title : "REPRODUCTOR",
 description: "EN VIVO",
-sources: [{
-file: url,
-drm: {"clearkey": {"keyId": k1, "key": k2}}
-}]
-}],
-autostart: auto,
-width: "100%", height: "540",  
-        aspectratio: "16:9",
-        mute: "false",
+            sources: sources
+        }],
         autostart: false,
+      
+        width: "100%", 
+        height: "100%", 
+         mute: "false",
+	     stretching: "exactfit",
+        aspectratio: "16:9",
        skin: {
         name: "white",
        active: "white",
@@ -389,16 +505,9 @@ width: "100%", height: "540",
     }
        }
        );
-
-    jwplayer("player").on("play", function(e){jwplayer("player").setCurrentAudioTrack(0)});
-  </script>
-<script>
-console.log("??");
-console.log("??");
-console.log("??");
-console.log("??");
-console.log("??");
-console.log("??");
-console.log("??");
-</script>
-</body></html>
+       
+		jwplayer("player").on("play", function(e){jwplayer("player").setCurrentAudioTrack(1)});
+  }
+    </script>
+</body>
+</html>
