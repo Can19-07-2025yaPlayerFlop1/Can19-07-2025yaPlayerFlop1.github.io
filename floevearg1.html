@@ -1,139 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="es">
-  <style>
-    * {
-  font-family: "Mulish", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
 
-:root {
-  --leftPos: 210px;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color:#05081c;
-  color: white;
-}
-
-#player {
- 
-}
-.homeScreen {
-  width: 100%;
-  height: 100%;
-
-}
-
-.homeScreen h1 {
-  margin: 0;
-  font-weight: 600;
-}
-
-.homeScreen #appError {
-  color: red;
-  display: none;
-}
-
-.loader  {
- 
-}
-
-.loader:before,
-.loader:after {   
-
-}
-.loader:before {
-
-}
-.loader:after {
-  
-}
-
-@keyframes rotate {
-  0% { 
-    -webkit-transform: rotate(0deg) scale(0.8); 
-    -moz-transform: rotate(0deg) scale(0.8);
-  }
-  50% { 
-    -webkit-transform: rotate(360deg) scale(1.2); 
-    -moz-transform: rotate(360deg) scale(1.2);
-  }
-  100% { 
-    -webkit-transform: rotate(720deg) scale(0.8); 
-    -moz-transform: rotate(720deg) scale(0.8);
-  }
-}
-
-@keyframes ball1 {
-  0% {
-    box-shadow: 30px 0 0 #150336;
-  }
-  50% {
-    box-shadow: 0 0 0 #000ba1;
-    margin-bottom: 0;
-    -webkit-transform: translate(15px,15px);
-    -moz-transform: translate(15px, 15px);
-  }
-  100% {
-    box-shadow: 30px 0 0 #12025c;
-    margin-bottom: 10px;
-  }
-}
-
-@keyframes ball2 {
-  0% {
-    box-shadow: 30px 0 0 #004b91;
-  }
-  50% {
-    box-shadow: 0 0 0 #2e0dbf;
-    margin-top: -20px;
-    -webkit-transform: translate(15px,15px);
-    -moz-transform: translate(15px, 15px);
-  }
-  100% {
-    box-shadow: 30px 0 0 #0531c4;
-    margin-top: 0;
-  }
-}
-
-@media (max-width: 1280px) {
-  :root {
-    --leftPos: 180px;
-  }
-  
-  .channelList {
-    /* max-width: 240px; */
-    width: 180px;
-  }
-
-  .programInfo {
-    grid-template-columns: 170px auto;
-    transition-timing-function: ease;
-    transition: transform .5s, width .5s, max-width .5s, position .5s;
-    height: 110px;
-  }
-
-  .programInfo .programDescription {
-    padding: 5px 0;
-  }
-
-  .programInfo .programDescription h1 {
-    font-size: 1.5rem;
-    line-height: 1.3rem;
-  }
-
-  .programInfo .programDescription p {
-    font-size: .8rem;
-  }
-
-  .programInfo .programDescription span {
-    font-size: .8rem;
-  }
-}
-    </style>
   
    <script src="https://can19-07espesodepomaavistop1.github.io/1channelList.js"></script>
   
@@ -143,7 +11,7 @@ body {
 body {
    margin: 0;
    padding: 0;
-   background-color:
+   background-color:#05081c;
 }
 
 @keyframes scaling {
