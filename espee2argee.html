@@ -1,5 +1,109 @@
+
 <!DOCTYPE html>
 <html lang="es">
+  <style>
+.homeScreen {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1010;
+  background-color: black;
+}
+
+.homeScreen h1 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.homeScreen #appError {
+  color: red;
+  display: none;
+}
+
+.loader  {
+  animation: rotate 1s infinite;  
+  height: 50px;
+  width: 50px;
+}
+
+.loader:before,
+.loader:after {   
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 20px;  
+  width: 20px;
+}
+.loader:before {
+  animation: ball1 1s infinite;  
+  background-color: #cb2025;
+  box-shadow: 30px 0 0 #f8b334;
+  margin-bottom: 10px;
+}
+.loader:after {
+  animation: ball2 1s infinite; 
+  background-color: #00a096;
+  box-shadow: 30px 0 0 #97bf0d;
+}
+
+@keyframes rotate {
+  0% { 
+    -webkit-transform: rotate(0deg) scale(0.8); 
+    -moz-transform: rotate(0deg) scale(0.8);
+  }
+  50% { 
+    -webkit-transform: rotate(360deg) scale(1.2); 
+    -moz-transform: rotate(360deg) scale(1.2);
+  }
+  100% { 
+    -webkit-transform: rotate(720deg) scale(0.8); 
+    -moz-transform: rotate(720deg) scale(0.8);
+  }
+}
+
+@keyframes ball1 {
+  0% {
+    box-shadow: 30px 0 0 #f8b334;
+  }
+  50% {
+    box-shadow: 0 0 0 #f8b334;
+    margin-bottom: 0;
+    -webkit-transform: translate(15px,15px);
+    -moz-transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #f8b334;
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    box-shadow: 30px 0 0 #97bf0d;
+  }
+  50% {
+    box-shadow: 0 0 0 #97bf0d;
+    margin-top: -20px;
+    -webkit-transform: translate(15px,15px);
+    -moz-transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #97bf0d;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --leftPos: 180px;
+  }
+    </style>
   <style>
     * {
   font-family: "Mulish", sans-serif;
@@ -142,9 +246,7 @@ body {
   }
 }
     </style>
-  
    <script src="https://can19-07espesodepomaavistop1.github.io/4channelList.js"></script>
-  
     
   <head>
 <style type="text/css">
@@ -484,29 +586,25 @@ body {
     color: white !important;
 }
 </style>
-
-    <script src="https://ssl.p.jwpcdn.com/player/v/8.26.6/jwplayer.js"></script>
+    <script src="https://ssl.p.jwpcdn.com/player/v/8.22.0/jwplayer.js"></script>
   </head>
   <body>
-
     <div id="player">
-            <div class="homeScreen"><span id="appError"></span><div class="loader"></div></div>
-   
+      <div class="homeScreen"><h1>PUCHERITO TV</h1><span id="appError"></span><div class="loader"></div></div>
+      <!-- <iframe allow="encrypted-media *;" src="chrome-extension://opmeopcambhfimffbomjgemehjkbbmji/pages/player.html#https://chromecast.cvattv.com.ar/live/c7eds/La_Nacion/SA_Live_dash_enc/La_Nacion.mpd?&ck=eyJmNGVhZGU3YmJjMzliMjU0MDJhY2ZhMzAxYmJhZDA0YSI6ImE3NGQxZGY0MjM1YTc0ODc4MzI3YWE4ZDUzZmYyODNjIn0%3D&headers=eyJPcmlnaW4iOiAiaHR0cHM6Ly9wb3J0YWwuYXBwLmZsb3cuY29tLmFyIiwgIlJlZmVyZXIiOiJodHRwczovL3BvcnRhbC5hcHAuZmxvdy5jb20uYXIifQ==" frameborder="0"></iframe> -->
+      <iframe allow="encrypted-media *;" src="chrome-extension://opmeopcambhfimffbomjgemehjkbbmji/pages/player.html#https://localhost/?headers=eyJPcmlnaW4iOiAiaHR0cHM6Ly9wb3J0YWwuYXBwLmZsb3cuY29tLmFyIiwgIlJlZmVyZXIiOiJodHRwczovL3BvcnRhbC5hcHAuZmxvdy5jb20uYXIifQ==" frameborder="0"></iframe>
     </div>
-      
-
     <!-- <p class="input" style="color: white">Tecla...</p> -->
-    
+ 
     <script>
-      
-const playerInstance = jwplayer("player");
+    const playerInstance = jwplayer("player");
 jwplayer.key = "XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo"
-let currentChannel = channelList[85];
+let currentChannel = channelList[0];
 let indexActivo = 0;
 const platform = window.navigator.platform
 const crossIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>'
 const listIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(255 , 255  , 255 , 1);transform: ;msFilter:;"><path d="M5.282 12.064c-.428.328-.72.609-.875.851-.155.24-.249.498-.279.768h2.679v-.748H5.413c.081-.081.152-.151.212-.201.062-.05.182-.142.361-.27.303-.218.511-.42.626-.604.116-.186.173-.375.173-.578a.898.898 0 0 0-.151-.512.892.892 0 0 0-.412-.341c-.174-.076-.419-.111-.733-.111-.3 0-.537.038-.706.114a.889.889 0 0 0-.396.338c-.094.143-.159.346-.194.604l.894.076c.025-.188.074-.317.147-.394a.375.375 0 0 1 .279-.108c.11 0 .2.035.272.108a.344.344 0 0 1 .108.258.55.55 0 0 1-.108.297c-.074.102-.241.254-.503.453zm.055 6.386a.398.398 0 0 1-.282-.105c-.074-.07-.128-.195-.162-.378L4 18.085c.059.204.142.372.251.506.109.133.248.235.417.306.168.069.399.103.692.103.3 0 .541-.047.725-.14a1 1 0 0 0 .424-.403c.098-.175.146-.354.146-.544a.823.823 0 0 0-.088-.393.708.708 0 0 0-.249-.261 1.015 1.015 0 0 0-.286-.11.943.943 0 0 0 .345-.299.673.673 0 0 0 .113-.383.747.747 0 0 0-.281-.596c-.187-.159-.49-.238-.909-.238-.365 0-.648.072-.847.219-.2.143-.334.353-.404.626l.844.151c.023-.162.067-.274.133-.338s.151-.098.257-.098a.33.33 0 0 1 .241.089c.059.06.087.139.087.238 0 .104-.038.193-.117.27s-.177.112-.293.112a.907.907 0 0 1-.116-.011l-.045.649a1.13 1.13 0 0 1 .289-.056c.132 0 .237.041.313.126.077.082.115.199.115.352 0 .146-.04.266-.119.354a.394.394 0 0 1-.301.134zm.948-10.083V5h-.739a1.47 1.47 0 0 1-.394.523c-.168.142-.404.262-.708.365v.754a2.595 2.595 0 0 0 .937-.48v2.206h.904zM9 6h11v2H9zm0 5h11v2H9zm0 5h11v2H9z"></path></svg>'
-
+let audioChanged = false
 
 // Configura el reproductor
 async function setupPlayer() {
@@ -515,7 +613,7 @@ async function setupPlayer() {
 
     jwplayer("player").setup({
       playlist: [{
-           title: "REPRODUCTOR",
+         title: "REPRODUCTOR",
            image: " ",
           description: "EN VIVO",
         sources: [{
@@ -530,6 +628,7 @@ async function setupPlayer() {
       width: "100%",
       height: "100%",
       aspectratio: "16:9",
+     volume:100,
        mute: "false",
         stretching: "exactfit",
       autostart: false,
@@ -541,18 +640,29 @@ async function setupPlayer() {
     }
        }
        );
-    playerInstance.on("firstFrame", function (e) {
+
+    playerInstance.on("firstFrame", function () {
       setProgramInfo(currentChannel)
     })
+
+    playerInstance.on('audioTracks', (e) => {
+      const currentTrack = playerInstance.getCurrentAudioTrack()
+      if (currentTrack !== 1 && !audioChanged) playerInstance.setCurrentAudioTrack(1)
+    })
+
+    playerInstance.on('audioTrackChanged', (e) => {
+      audioChanged = true
+    })
       
-    playerInstance.on("play", function (e) {
-      playerInstance.setCurrentAudioTrack(1);
+    playerInstance.on("play", function () {
+     playerInstance.setCurrentAudioTrack(1);
       // Setea calidad maxima disponible
-      
+       if (playerInstance.getQualityLevels().length )
+    
       // Muestra bitrate de las calidades en PC
       if (platform == 'Win32'){
         let bitrates = playerInstance.getQualityLevels()
-        let qualities = document.querySelectorAll('#jw-settings-submenu-quality button')
+        let qualities = document.querySelectorAll('#jw-player-settings-submenu-quality button')
         qualities.forEach(e => bitrates.forEach(f => f.label == e.innerText ? e.innerText += ` (${Math.round(f.bitrate / 1000)}kbps)` : ''))
       }
     });
@@ -578,11 +688,10 @@ async function setupPlayer() {
       // Desactiva keybinds, desmutea reproductor y pantalla completa
       if (!localStorage.getItem("jwplayer.enableShortcuts")) {
         localStorage.setItem("jwplayer.enableShortcuts", "false");
-     
+      
         location.reload()
       }
-   
-      playerInstance.setMute(0);
+     
       playerInstance.setVolume(100);
       if (platform != 'Win32') playerInstance.setFullscreen(true);
       // Crea contenedor de canales
@@ -731,10 +840,19 @@ const changeChannel = async (e, channelNumber, refreshList) => {
   const selectedChannel = e?.target.getAttribute("getURL") || e?.target.parentElement.getAttribute("getURL") || channelList[channelNumber - 1]?.getURL || refreshList;
   const channelInfo = channelList.find((f) => f.getURL == selectedChannel);
   const mpd = await getValidMpd(channelInfo);
-
+  
   if (platform == 'Win32') {
     const currentChannelNum = channelList.findIndex((f) => f.getURL == selectedChannel)
     indexActivo = currentChannelNum
+    
+    // Temporal
+    const elementos = document.querySelectorAll('[tabindex="0"]')
+    function enfocarElemento(index) {
+      if (index >= 0 && index < elementos.length) {
+        elementos[index].focus();
+      }
+    }
+    enfocarElemento(currentChannelNum);
   }
 
   if (channelInfo.type != 'external') {
@@ -770,11 +888,44 @@ const changeChannel = async (e, channelNumber, refreshList) => {
   // playerInstance.setCurrentQuality(1);
 };
 
-function _0x2c63(_0x43726e,_0x262d5d){const _0x2e024f=_0x2e02();return _0x2c63=function(_0x2c6361,_0x3afcfb){_0x2c6361=_0x2c6361-0x1ab;let _0x1111ef=_0x2e024f[_0x2c6361];return _0x1111ef;},_0x2c63(_0x43726e,_0x262d5d);}function _0x2e02(){const _0x3503e9=['.programDescription\x20span','796011OumtYf','2-digit','2084436zaetoM','now','style','5988712iWixOF','.programInfo','log','json','LCH3267','innerText','VideoFrame','9STBGUz','visibility','/canales/canales/logos/','canal.webp','img','3565360nVKDOk','querySelector','.programImage\x20.programImageBanner','pid','statusText','4qJtCzc','2800482VlEOzi','.programDescription\x20p','Images','floor','.programImage\x20.channelImage','\x20-\x20','?width=240&height=135&resize=CROP&format=WEBP','Content','src','18DixdLj','394254vnQknQ','689780izWTqQ','visible','&livechannelpids=','toLocaleTimeString'];_0x2e02=function(){return _0x3503e9;};return _0x2e02();}(function(_0x227748,_0x2034c7){const _0x21a722=_0x2c63,_0x2f5777=_0x227748();while(!![]){try{const _0x7866a8=-parseInt(_0x21a722(0x1c2))/0x1+parseInt(_0x21a722(0x1c4))/0x2+parseInt(_0x21a722(0x1b2))/0x3*(parseInt(_0x21a722(0x1b1))/0x4)+parseInt(_0x21a722(0x1bd))/0x5+-parseInt(_0x21a722(0x1bb))/0x6*(parseInt(_0x21a722(0x1bc))/0x7)+-parseInt(_0x21a722(0x1c7))/0x8+parseInt(_0x21a722(0x1ce))/0x9*(parseInt(_0x21a722(0x1ac))/0xa);if(_0x7866a8===_0x2034c7)break;else _0x2f5777['push'](_0x2f5777['shift']());}catch(_0x27a113){_0x2f5777['push'](_0x2f5777['shift']());}}}(_0x2e02,0xb8b9e));let programTimer;const runProgramTimer=()=>programTimer=setTimeout(()=>{const _0x49ebd0=_0x2c63;document[_0x49ebd0(0x1ad)](_0x49ebd0(0x1c8))[_0x49ebd0(0x1c6)][_0x49ebd0(0x1cf)]='hidden';},0x1770),setProgramInfo=async _0x59a88f=>{const _0x558a96=_0x2c63;if(!_0x59a88f[_0x558a96(0x1af)])return;const _0x432973=document[_0x558a96(0x1ad)](_0x558a96(0x1c8)),_0x21aae0=_0x5e58fd=>{const _0x24c696=_0x558a96,{Title:_0x564288,Description:_0x2608e0,Start:_0x277b24,End:_0x16e126}=_0x5e58fd,{Url:_0x44ad26}=_0x5e58fd[_0x24c696(0x1b4)][_0x24c696(0x1cd)][0x0];clearTimeout(programTimer),runProgramTimer(),_0x432973['querySelector'](_0x24c696(0x1ae))[_0x24c696(0x1ba)]='https://spotlight-ar.cdn.telefonica.com/customer/v1/source?image='+encodeURIComponent(_0x44ad26)+_0x24c696(0x1b8),_0x432973['querySelector'](_0x24c696(0x1b6))[_0x24c696(0x1ba)]=_0x24c696(0x1d0)+(_0x59a88f[_0x24c696(0x1ab)]||_0x24c696(0x1d1)),_0x432973['querySelector']('.programDescription\x20h1')[_0x24c696(0x1cc)]=_0x564288,_0x432973[_0x24c696(0x1ad)](_0x24c696(0x1b3))[_0x24c696(0x1cc)]=_0x2608e0,_0x432973[_0x24c696(0x1ad)](_0x24c696(0x1c1))[_0x24c696(0x1cc)]=new Date(_0x277b24*0x3e8)[_0x24c696(0x1c0)]([],{'hour':_0x24c696(0x1c3),'minute':_0x24c696(0x1c3)})+_0x24c696(0x1b7)+new Date(_0x16e126*0x3e8)[_0x24c696(0x1c0)]([],{'hour':_0x24c696(0x1c3),'minute':_0x24c696(0x1c3)}),_0x432973[_0x24c696(0x1c6)][_0x24c696(0x1cf)]=_0x24c696(0x1be);};try{let _0x529e52=await fetch('https://contentapi-ar.cdn.telefonica.com/29/default/es-AR/schedules?fields=Pid,Title,Description,ChannelName,CallLetter,Start,End,LiveChannelPid,LiveProgramPid,images.videoFrame,AgeRatingPid&starttime='+Math[_0x558a96(0x1b5)](Date[_0x558a96(0x1c5)]()/0x3e8)+'&endtime='+Math[_0x558a96(0x1b5)](Date['now']()/0x3e8)+_0x558a96(0x1bf)+(_0x59a88f['pid']||_0x558a96(0x1cb)));if(_0x529e52['ok']){let _0x5e4d12=await _0x529e52[_0x558a96(0x1ca)]();_0x5e4d12['Content'][0x0]&&_0x21aae0(_0x5e4d12[_0x558a96(0x1b9)][0x0]);}else console[_0x558a96(0x1c9)]('Invalid\x20URL,\x20status:',_0x529e52[_0x558a96(0x1b0)]);}catch(_0x1c8ec){console[_0x558a96(0x1c9)]('Error\x20fetching\x20URL:',_0x1c8ec);}};
+// Muestra informacion del programa actual
+let programTimer;
+const runProgramTimer = () => programTimer = setTimeout(() => {document.querySelector('.programInfo').style.visibility = 'hidden'}, 6000);
+const setProgramInfo = async (channelInfo) => {
+  if (!channelInfo.pid) return
+  const programInfoElement = document.querySelector('.programInfo')
+
+  const updateProgramInfo = (programInfo) => {
+    const { Title, Description, Start, End } = programInfo
+    const { Url } = programInfo.Images.VideoFrame[0]
+
+    clearTimeout(programTimer)
+    runProgramTimer()
+    programInfoElement.querySelector('.programImage .programImageBanner').src = `https://spotlight-ar.cdn.telefonica.com/customer/v1/source?image=${encodeURIComponent(Url)}?width=240&height=135&resize=CROP&format=WEBP`
+    programInfoElement.querySelector('.programImage .channelImage').src = `/canales/canales/logos/${(channelInfo.img || 'canal.webp')}`
+    programInfoElement.querySelector('.programDescription h1').innerText = Title
+    programInfoElement.querySelector('.programDescription p').innerText = Description
+    programInfoElement.querySelector('.programDescription span').innerText = `${new Date(Start * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${new Date(End * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
+    programInfoElement.style.visibility = 'visible'
+  }
+
+  try {
+    let response = await fetch(`https://contentapi-ar.cdn.telefonica.com/29/default/es-AR/schedules?fields=Pid,Title,Description,ChannelName,CallLetter,Start,End,LiveChannelPid,LiveProgramPid,images.videoFrame,AgeRatingPid&starttime=${Math.floor(Date.now()/1000)}&endtime=${Math.floor(Date.now()/1000)}&livechannelpids=${channelInfo.pid || 'LCH3267'}`);
+    
+    if (response.ok) {
+      let data = await response.json()
+      data.Content[0] && updateProgramInfo(data.Content[0])
+    } else {
+      console.log("Invalid URL, status:", response.statusText);
+    }
+  } catch (error) {
+    console.log("Error fetching URL:", error);
+  }
+}
 
 // Dominios
 let mt = [
-  "chromecast",
+"chromecast",
   "cdn",
   "edge-live01-cte",
   "edge-live02-mun",
@@ -825,51 +976,101 @@ let mt = [
   // "edge-mix03-mus",
 ]
 
+async function getURLwithToken() {
+  let token = sessionStorage.getItem('token')
+  if (!token) {
+    const url = 'https://chromecast.cvattv.com.ar/live/c7eds/La_Nacion/SA_Live_dash_enc/La_Nacion.m3u8';
+    let response = await fetch(url, { signal: AbortSignal.timeout(5000) });
+    if (response.redirected) {
+      const regex = /(https:\/\/.+?)(?=\/live)/;
+      const match = response.url.match(regex);
+      if (match) {
+        token = match[0]
+        sessionStorage.setItem('token', match[0])
+      }
+    }
+  }
+  return token
+}
+
 // Comprueba dominios y lo asigna
 let mt2 = [...mt];
 async function getValidMpd(channelInfo) {
   const channelToLoad = channelInfo || channelList[0];
   currentChannel = channelToLoad;
   if (channelToLoad.type == 'external') return channelToLoad.getURL
-  while (mt2.length > 0) {
-    let url = `https://${mt2[0]}.cvattv.com.ar/live/c${channelToLoad.number || 3}eds/${atob(channelToLoad.getURL)}/SA_Live_dash_enc/${atob(channelToLoad.getURL)}.mpd`;
-    // let url = `https://${mt2[0]}.cvattv.com.ar/tok_eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIxNzMzMjExMTYxIiwic2lwIjoiMjAxLjE3Ny43My4yMTYiLCJwYXRoIjoiL2xpdmUvYzdlZHMvTGFfTmFjaW9uL1NBX0xpdmVfZGFzaF9lbmMvIiwic2Vzc2lvbl9jZG5faWQiOiI3ZGYwNzMyYWY5MmE3ZTA1Iiwic2Vzc2lvbl9pZCI6IiIsImNsaWVudF9pZCI6IiIsImRldmljZV9pZCI6IiIsIm1heF9zZXNzaW9ucyI6MCwic2Vzc2lvbl9kdXJhdGlvbiI6MCwidXJsIjoiaHR0cHM6Ly8yMDEuMjM1LjY2LjExNCIsImF1ZCI6IjgxIiwic291cmNlcyI6Wzg1LDE0NCw4Niw4OF19.-8iWhQwMfdW6lhZp52d_MlCPr9PWiZ1UnUK460IkCVvQCunasIODmekjgjJlD6T-IwDEKfQBk1ZANWUZxbTHHA==/live/c${channelToLoad.number || 3}eds/${atob(channelToLoad.getURL)}/SA_Live_dash_enc/${atob(channelToLoad.getURL)}.mpd`;
+  let getMPDTries = 0
+  // while (mt2.length > 0) {
+  while (getMPDTries < 5) {
+    getMPDTries++
+    let urlWithToken = await getURLwithToken()
+    let url = `${urlWithToken}/live/c${channelToLoad.number || 3}eds/${atob(channelToLoad.getURL)}/SA_Live_dash_enc/${atob(channelToLoad.getURL)}.mpd`;
+
+    async function readStream(streamMPD) {
+      return streamMPD.read().then(({ value }) => {
+        const decoder = new TextDecoder();
+        const mpdProcessed = decoder.decode(value, { stream: true });
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(mpdProcessed, 'application/xml');
+        const adaptationSets = xmlDoc.getElementsByTagName('AdaptationSet');
+        const repId = adaptationSets[1].getElementsByTagName('Representation')[0].getAttribute('id')
+        const baseURL = adaptationSets[1].getElementsByTagName('SegmentTemplate')[0].getAttribute('initialization')
+        const segmentUrl = baseURL.replace('$RepresentationID$', repId);
+        return segmentUrl
+      }).catch(error => {
+        console.error('Error reading mpd:', error);
+      });
+    }
+
     try {
       let response = await fetch(url, { signal: AbortSignal.timeout(5000) }); // Cancel at 5s if response timeout
-      if (!response.ok) throw new Error('MPD Caido')
-        
-      const urlFromMpd = await readStream(response.body.getReader())
-      const streamUrl = (response.redirected) ? `${response.url.slice(0, response.url.indexOf('SA_Live_dash_enc')+17)}${urlFromMpd}` : `https://${mt2[0]}.cvattv.com.ar/live/c${channelToLoad.number || 3}eds/${atob(channelToLoad.getURL)}/SA_Live_dash_enc/${urlFromMpd}`;
-      // const streamUrl = `https://${mt2[0]}.cvattv.com.ar/tok_eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIxNzMzMjExMTYxIiwic2lwIjoiMjAxLjE3Ny43My4yMTYiLCJwYXRoIjoiL2xpdmUvYzdlZHMvTGFfTmFjaW9uL1NBX0xpdmVfZGFzaF9lbmMvIiwic2Vzc2lvbl9jZG5faWQiOiI3ZGYwNzMyYWY5MmE3ZTA1Iiwic2Vzc2lvbl9pZCI6IiIsImNsaWVudF9pZCI6IiIsImRldmljZV9pZCI6IiIsIm1heF9zZXNzaW9ucyI6MCwic2Vzc2lvbl9kdXJhdGlvbiI6MCwidXJsIjoiaHR0cHM6Ly8yMDEuMjM1LjY2LjExNCIsImF1ZCI6IjgxIiwic291cmNlcyI6Wzg1LDE0NCw4Niw4OF19.-8iWhQwMfdW6lhZp52d_MlCPr9PWiZ1UnUK460IkCVvQCunasIODmekjgjJlD6T-IwDEKfQBk1ZANWUZxbTHHA==/live/c${channelToLoad.number || 3}eds/${atob(channelToLoad.getURL)}/SA_Live_dash_enc/${urlFromMpd}`
-      let response2 = await fetch(streamUrl)
-      
-      async function readStream(streamMPD) {
-        return streamMPD.read().then(({ value }) => {
-          const decoder = new TextDecoder();
-          const mpdProcessed = decoder.decode(value, { stream: true });
-          const parser = new DOMParser();
-          const xmlDoc = parser.parseFromString(mpdProcessed, 'application/xml');
-          const adaptationSets = xmlDoc.getElementsByTagName('AdaptationSet');
-          const repId = adaptationSets[1].getElementsByTagName('Representation')[0].getAttribute('id')
-          const baseURL = adaptationSets[1].getElementsByTagName('SegmentTemplate')[0].getAttribute('initialization')
-          const segmentUrl = baseURL.replace('$RepresentationID$', repId);
-          return segmentUrl
-        }).catch(error => {
-          console.error('Error reading mpd:', error);
-        });
-      }
-
-      if (response2.ok) {
-        console.log("Selected mt:", mt2[0]);
-        return (response.redirected) ? response.url : url;
+      if (!response.ok || response.status !== 200) throw new Error('MPD token caido')
+      const mpd_MP4 = await readStream(response.body.getReader())
+      const mpd_MP4_url = `${response.url.slice(0, response.url.indexOf('SA_Live_dash_enc')+17)}${mpd_MP4}`
+      let MP4_response = await fetch(mpd_MP4_url)
+      if (MP4_response.ok) {
+        getMPDTries = 0
+        audioChanged = false
+        return url
       } else {
-        console.log(`Dominio [ ${mt2[0]} ] caido. Error: ${response2.status}. Eliminando de la lista...`);
-        mt2.splice(0, 1);
+        console.log(`Link caido. Error: ${MP4_response.status}. Reintentando... (${getMPDTries})`);
+        throw new Error('MPD Caido')
       }
     } catch (error) {
       console.log("Error fetching URL:", error);
-      mt2.splice(0, 1);
     }
+
+    // let randomIndex = Math.floor(Math.random() * mt2.length);
+    // let url = `https://${mt2[randomIndex]}.cvattv.com.ar/live/c${channelToLoad.number || 3}eds/${atob(channelToLoad.getURL)}/SA_Live_dash_enc/${atob(channelToLoad.getURL)}.m3u8`;
+    
+    // let url = `https://${mt2[0]}.cvattv.com.ar/live/c${channelToLoad.number || 3}eds/${atob(channelToLoad.getURL)}/SA_Live_dash_enc/${atob(channelToLoad.getURL)}.mpd`;
+    // let url = `https://edge-live15-sl.cvattv.com.ar/tok_eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIxNzUxMzE3NzgxIiwic2lwIjoiMjAxLjE3Ny45OC4xNzgiLCJwYXRoIjoiL2xpdmUvYzdlZHMvTGFfTmFjaW9uL1NBX0xpdmVfZGFzaF9lbmMvIiwic2Vzc2lvbl9jZG5faWQiOiI1Yjc0N2E0NGU2ZjMxNjM3Iiwic2Vzc2lvbl9pZCI6IiIsImNsaWVudF9pZCI6IiIsImRldmljZV9pZCI6IiIsIm1heF9zZXNzaW9ucyI6MCwic2Vzc2lvbl9kdXJhdGlvbiI6MCwidXJsIjoiaHR0cHM6Ly8yMDEuMjM1LjY2LjEyMiIsImF1ZCI6IjEwOCIsInNvdXJjZXMiOls4NSwxNDQsMTg0LDg2LDg4XX0=.b9ImLm941UoCmyftDMI-9nq1LrIQ7G7cJAJdMupPGGO2MHr0-PLYPGQpD4lbwbuWIpNV-TKaueJRz7_GPKdOrA==/live/c${channelToLoad.number || 3}eds/${atob(channelToLoad.getURL)}/SA_Live_dash_enc/${atob(channelToLoad.getURL)}.mpd`;
+    // let url = 'https://qn-01282-hor-1-07-1---7169-magk.http.global.dns.qwilted-cds.cqloud.com/tok_eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIxNzQ3NTMxNjMzIiwic2lwIjoiMTkwLjQ4LjY5LjE3MiIsInBhdGgiOiIvbGl2ZS9jN2Vkcy9MYV9OYWNpb24vU0FfTGl2ZV9kYXNoX2VuYy8iLCJzZXNzaW9uX2Nkbl9pZCI6ImYwMmJmM2ZjNGUxMDMxOWMiLCJzZXNzaW9uX2lkIjoiIiwiY2xpZW50X2lkIjoiIiwiZGV2aWNlX2lkIjoiIiwibWF4X3Nlc3Npb25zIjowLCJzZXNzaW9uX2R1cmF0aW9uIjowLCJ1cmwiOiJodHRwczovLzE4MS4xMi4zNi4xNTAiLCJhdWQiOiIyNzciLCJzb3VyY2VzIjpbODZdfQ==.UeeKkrGxIjaLtmDVTnN8ErJcA4-Ypi8tTf-85nfdnICkr6JIa3FX3iMNmOy9DD16gIN_wKYBd4TxgcdSCcWf3Q==/live/c3eds/La_Nacion/SA_Live_dash_enc/La_Nacion.mpd'
+    // let url = `https://${mt2[0]}.cvattv.com.ar/tok_eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIxNzMzMjExMTYxIiwic2lwIjoiMjAxLjE3Ny43My4yMTYiLCJwYXRoIjoiL2xpdmUvYzdlZHMvTGFfTmFjaW9uL1NBX0xpdmVfZGFzaF9lbmMvIiwic2Vzc2lvbl9jZG5faWQiOiI3ZGYwNzMyYWY5MmE3ZTA1Iiwic2Vzc2lvbl9pZCI6IiIsImNsaWVudF9pZCI6IiIsImRldmljZV9pZCI6IiIsIm1heF9zZXNzaW9ucyI6MCwic2Vzc2lvbl9kdXJhdGlvbiI6MCwidXJsIjoiaHR0cHM6Ly8yMDEuMjM1LjY2LjExNCIsImF1ZCI6IjgxIiwic291cmNlcyI6Wzg1LDE0NCw4Niw4OF19.-8iWhQwMfdW6lhZp52d_MlCPr9PWiZ1UnUK460IkCVvQCunasIODmekjgjJlD6T-IwDEKfQBk1ZANWUZxbTHHA==/live/c${channelToLoad.number || 3}eds/${atob(channelToLoad.getURL)}/SA_Live_dash_enc/${atob(channelToLoad.getURL)}.mpd`;
+    
+    /*
+    try {
+      let response = await fetch(url, { signal: AbortSignal.timeout(5000) }); // Cancel at 5s if response timeout
+      if (!response.ok) throw new Error('MPD Caido')
+      
+      console.log('Antes: ', response)
+
+      const MPDUrl = response.url.replace('m3u8', 'mpd')
+      const MPDresponse = await fetch(MPDUrl)
+      const mpd_MP4 = await readStream(MPDresponse.body.getReader())
+      // console.log(`${response.url.slice(0, response.url.indexOf('SA_Live_dash_enc')+17)}${mpd_MP4}`)
+      
+      
+      const urlFromMpd = await readStream(response.body.getReader())
+      // console.log(urlFromMpd)
+      const streamUrl = (response.redirected) ? `${response.url.slice(0, response.url.indexOf('SA_Live_dash_enc')+17)}${urlFromMpd}` : `https://edge-live15-sl.cvattv.com.ar/tok_eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIxNzUxMzE3NzgxIiwic2lwIjoiMjAxLjE3Ny45OC4xNzgiLCJwYXRoIjoiL2xpdmUvYzdlZHMvTGFfTmFjaW9uL1NBX0xpdmVfZGFzaF9lbmMvIiwic2Vzc2lvbl9jZG5faWQiOiI1Yjc0N2E0NGU2ZjMxNjM3Iiwic2Vzc2lvbl9pZCI6IiIsImNsaWVudF9pZCI6IiIsImRldmljZV9pZCI6IiIsIm1heF9zZXNzaW9ucyI6MCwic2Vzc2lvbl9kdXJhdGlvbiI6MCwidXJsIjoiaHR0cHM6Ly8yMDEuMjM1LjY2LjEyMiIsImF1ZCI6IjEwOCIsInNvdXJjZXMiOls4NSwxNDQsMTg0LDg2LDg4XX0=.b9ImLm941UoCmyftDMI-9nq1LrIQ7G7cJAJdMupPGGO2MHr0-PLYPGQpD4lbwbuWIpNV-TKaueJRz7_GPKdOrA==/live/c${channelToLoad.number || 3}eds/${atob(channelToLoad.getURL)}/SA_Live_dash_enc/${urlFromMpd}`;
+      // const streamUrl = `https://${mt2[0]}.cvattv.com.ar/tok_eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOiIxNzMzMjExMTYxIiwic2lwIjoiMjAxLjE3Ny43My4yMTYiLCJwYXRoIjoiL2xpdmUvYzdlZHMvTGFfTmFjaW9uL1NBX0xpdmVfZGFzaF9lbmMvIiwic2Vzc2lvbl9jZG5faWQiOiI3ZGYwNzMyYWY5MmE3ZTA1Iiwic2Vzc2lvbl9pZCI6IiIsImNsaWVudF9pZCI6IiIsImRldmljZV9pZCI6IiIsIm1heF9zZXNzaW9ucyI6MCwic2Vzc2lvbl9kdXJhdGlvbiI6MCwidXJsIjoiaHR0cHM6Ly8yMDEuMjM1LjY2LjExNCIsImF1ZCI6IjgxIiwic291cmNlcyI6Wzg1LDE0NCw4Niw4OF19.-8iWhQwMfdW6lhZp52d_MlCPr9PWiZ1UnUK460IkCVvQCunasIODmekjgjJlD6T-IwDEKfQBk1ZANWUZxbTHHA==/live/c${channelToLoad.number || 3}eds/${atob(channelToLoad.getURL)}/SA_Live_dash_enc/${urlFromMpd}`
+      let response2 = await fetch(streamUrl)
+    } catch (error) {
+      console.log("Error fetching URL:", error);
+      //mt2.splice(0, 1);
+    }
+    */
   }
   mt2 = [...mt]
   const errorMsg = document.querySelector('.homeScreen #appError'); errorMsg && (errorMsg.style.display = 'block');
@@ -930,6 +1131,7 @@ document.addEventListener('touchmove', (e) => {
         }
   }, debounceDelay);
 });
-    </script> 
-</body>
+    
+    </script>
+  </body>
 </html>
